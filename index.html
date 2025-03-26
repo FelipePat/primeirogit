@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil</title>
+    <link rel="stylesheet" href="style.css">
+ </head>
+<body>
+    <p id="descricao"></p>
+    <script>
+        // Lê o arquivo "descricao.txt"
+        fetch('descricao.txt')
+            .then(response => response.text())
+            .then(texto => {
+                document.getElementById('descricao').textContent = texto;
+            })
+            .catch(err => {
+                console.error("Erro ao ler o arquivo:", err);
+            });
+    </script>
+    <header>
+        <h1>Olá, Meu nome é Felipe Pamplona Antunes Tremea</h1>
+    </header>
+<main>
+<section class="sobre-mim">
+<h2>Sobre Mim</h2>
+<p id="descricao">Carregando...</p>
+<p>Em transição para a área de Análise e Desenvolvimento de Sistemas, busco aplicar minha experiência em gestão, organização e resolução de problemas, adquirida na gastronomia, para contribuir com soluções tecnológicas inovadoras e eficientes.</p>
+</section>
+<section class="habilidades">
+    <h2>Habilidades</h2>
+    <ul>
+        <li>Html</li>
+        <li>Css</li>
+        <li>Java (em aprendizado)</li>
+    </ul>
+</section>
+<section class="experiencias">
+    <h2>Experiências</h2>
+    <li>SENACPR — Atendimento de Salão
+        DEZEMBRO DE 2024 - MARÇO DE 2025
+        Recepcionava os clientes, realizava o atendimento personalizado às mesas, esclarecia dúvidas sobre o cardápio e garantia uma experiência agradável durante sua permanência no estabelecimento. Colaborava com a equipe do salão e da cozinha para garantir a fluidez do serviço.</li>
+        <li>PUCPR — Técnico de laboratório em Gastronomia
+            JUNHO DE 2024 - NOVEMBRO DE 2024
+            Responsável por gerar listas de compras para as aulas, receber os produtos e conferir as notas fiscais, separar itens, manter o laboratório limpo e organizado, e auxiliar os alunos com dúvidas sobre os equipamentos.</li>
+            <li>Pizzaria da Mathilda — Gerente e Pizzaiolo
+                MARÇO 2021 - AGOSTO DE 2023
+                Gerenciava a compra de itens para duas unidades da pizzaria, negociava compras e prazos com fornecedores, recebimento e organização de nota fiscal, controle de estoque ,coordenava solicitações de manutenção, realizava contratações, liderava duas equipes e preparava pizzas.</li>
+                <li>Mantra foods — Chef de cozinha
+ABRIL DE 2019 - MARÇO DE 2020
+Exerci a função de cozinheiro por quatro meses e, posteriormente, fui promovido a chef, onde era responsável pela elaboração dos cardápios diários e pela lista de compras de insumos, como carnes, frutas, legumes e verduras.</li>
+<li>ArtStore Comunicação — Arte finalista e Acabamento
+    ABRIL DE 2012 - JULHO DE 2016
+    Responsável pela criação de artes personalizadas conforme as demandas dos clientes, incluindo banners, adesivos, outdoors e placas. E também executava instalação destes produtos</li>
+</section>
+<section class="idiomas">
+    <h2>Idiomas</h2>
+    <ul>
+        <li>Português</li>
+        <li>Espanhol</li>
+        <li>Inglês (básico)</li>
+    </ul>
+</section>
+</main>
+<footer>Feito com VSCode e java</footer>
+<script src="script.js"></script>
+</body>
+</html>

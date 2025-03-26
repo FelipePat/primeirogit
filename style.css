@@ -1,0 +1,38 @@
+body{ 
+font-family: Georgia, 'Times New Roman', Times, serif;
+line-height: 1.6;
+margin: 0;
+padding: 0;
+background-color: rgb(189, 189, 189);
+color: #000000;
+}
+header{
+    background-color: hsl(0, 0%, 47%);
+    color: rgb(0, 0, 0);
+    padding: 1rem;
+    text-align: center;
+
+}
+main{
+    padding: 1rem;
+
+}
+
+.sobre-mim, .habilidades, .experiencias, .idiomas {
+    background: rgb(219, 219, 219);
+    margin: 1rem;
+    border-bottom: 0.5rem;
+
+}
+ul{
+    padding-left: 1.5rem;
+
+}
+footer{
+    text-align: center;
+    padding: 1rem;
+    background: #333;
+    color: white;
+}
+
+

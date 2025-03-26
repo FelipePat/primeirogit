@@ -1,0 +1,3 @@
+ "Em transição para a área de Análise e Desenvolvimento de Sistemas, busco aplicar minha experiência em gestão, organização e resolução de problemas, adquirida na gastronomia, para contribuir com soluções tecnológicas inovadoras e eficientes.",
+            "Amo programação e quero me especializar em desenvolvimento web.", 
+            "Estou criando meu primeiro projeto integrando Java + HTML + CSS!"
