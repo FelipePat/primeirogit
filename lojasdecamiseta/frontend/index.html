@@ -1,61 +1,128 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <meta name="description" content="DrilWear - Streetwear autêntico inspirado na cultura graffiti. Camisetas, moletons e acessórios com designs urbanos exclusivos. Envio para todo Brasil.">
     <meta charset="UTF-8">
-    <title>DrilWear</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DrilWear | Streetwear de Graffiti | Camisetas, Moletons e Acessórios Urbanos</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Adicione o Font Awesome para os ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="containe-logo">
-        <img src="https://static1.textcraft.net/data1/1/d/1dc11baebaf93aa85763de71a0d9ffca70f4ae8cda39a3ee5e6b4b0d3255bfef95601890afd80709da39a3ee5e6b4b0d3255bfef95601890afd80709bc2fd6a816ffb5ddcd974fd04f4c007e.png" alt="DrilStreetWear" class="logo-graffiti">
-    </div>
-<nav class="meunu-graffiti">
-    
-</nav>
-    </header>
-
-    <nav class="menu-graffiti">
-        <ul>
-            <li><a href="#"><i class="fas fa-home"></i> Home </a></li>
-            <li><a href="#"><i class="fas fa-tshirt"></i> Camisetas </a></li>
-            <li><a href="#"><i class="fas fa-hoodie"></i> Moletons </a></li>
-            <li><a href="#"><i class="fas fa-hat-cowboy"></i> Bonés </a></li>
-            <li><a href="#"><i class="fas fa-spray-can"></i> Artistas </a></li>
-        </ul>
-    </nav>
-</header>
-    
-<main>
-    <!-- Seção de produtos-->
-    <section class="produtos">   
-    <div class="produto">
-           
-            <img src="assets/camiseta-1.jpg" alt="camisteta camiseta-type">
-            
-
-            <h3> Camiseta  Graffiti e café</h3>
-            <p>R$100,00</p>
-            <button onclick="adicionaraocarrinho('CaCamiseta Graffiti e Café', 100,0 )">Comprar</button>
+        
+        <div class="container-logo">
+            <img src="https://static1.textcraft.net/data1/1/d/1dc11baebaf93aa85763de71a0d9ffca70f4ae8cda39a3ee5e6b4b0d3255bfef95601890afd80709da39a3ee5e6b4b0d3255bfef95601890afd80709bc2fd6a816ffb5ddcd974fd04f4c007e.png" 
+                 alt="DrilStreetWear" class="logo-graffiti">
         </div>
-<!-- adcicionar mais produtos aqui depois-->
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+        </div>
+        <!-- Carrinho no header -->
+        <div class="carrinho-container">
+            <button class="carrinho-btn" onclick="toggleCarrinho()">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="contador-carrinho">0</span>
+            </button>
+            <aside class="carrinho" id="carrinho-dropdown">
+                <h2><i class="fas fa-shopping-cart"></i> Meu Carrinho</h2>
+                <ul id="lista-carrinho"></ul>
+                <p>Total: R$ <span id="total">0,00</span></p>
+                <button onclick="finalizarCompra()">Finalizar Compra</button>
+            </aside>
+        </div>
+    
+        <nav class="menu-graffiti">
+            <!-- Seu menu atual -->
+        </nav>
+        
+        <nav class="menu-graffiti">
+            <ul>
+                <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-tshirt"></i> Camisetas</a></li>
+                <li><a href="#"><i class="fas fa-user-tie"></i> Moletons</a></li>
+                <li><a href="#"><i class="fas fa-hat-cowboy"></i> Bonés</a></li>
+                <li><a href="#"><i class="fas fa-spray-can"></i> Artistas</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        
+        <!-- Seção de produtos-->
+        <section class="produtos">   
+            <div class="produto">
+                <img src="https://i.pinimg.com/736x/e8/b1/7a/e8b17aabc8f1e91b50996fdd24498923.jpg" alt="Camiseta Graffiti e Café">
+                <h3>Camiseta Graffiti e Café</h3>
+                <p>R$100,00</p>
+                <button onclick="adicionarAoCarrinho('Camiseta Graffiti e Café', 100.00)">Comprar</button>
+            </div>
+            <!-- adicionar mais produtos aqui depois-->
+            <div class="produto">
+                <img src="https://i.pinimg.com/736x/e8/b1/7a/e8b17aabc8f1e91b50996fdd24498923.jpg" alt="Camiseta Spray Urbano">
+                <h3>Camiseta Spray Urbano</h3>
+                <p>R$100,00</p>
+                <button onclick="adicionarAoCarrinho('Camiseta Spray Urbano', 100.00)">Comprar</button>
+            </div>
+        
+            <div class="produto">
+                <img src="https://i.pinimg.com/736x/e8/b1/7a/e8b17aabc8f1e91b50996fdd24498923.jpg" alt="Camiseta Tag Master">
+                <h3>Camiseta Tag Master</h3>
+                <p>R$100,00</p>
+                <button onclick="adicionarAoCarrinho('Camiseta Tag Master', 100.00)">Comprar</button>
+            </div>
+        
+            <div class="produto">
+                <img src="https://i.pinimg.com/736x/e8/b1/7a/e8b17aabc8f1e91b50996fdd24498923.jpg" alt="Camiseta Wall King">
+                <h3>Camiseta Wall King</h3>
+                <p>R$100,00</p>
+                <button onclick="adicionarAoCarrinho('Camiseta Wall King', 100.00)">Comprar</button>
+            </div>
+        
+            <div class="produto">
+                <img src="https://i.pinimg.com/736x/e8/b1/7a/e8b17aabc8f1e91b50996fdd24498923.jpg" alt="Camiseta Train Style">
+                <h3>Camiseta Train Style</h3>
+                <p>R$100,00</p>
+                <button onclick="adicionarAoCarrinho('Camiseta Train Style', 100.00)">Comprar</button>
+            </div>
+        
+            <div class="produto">
+                <img src="https://i.pinimg.com/736x/e8/b1/7a/e8b17aabc8f1e91b50996fdd24498923.jpg" alt="Camiseta Street Flow">
+                <h3>Camiseta Street Flow</h3>
+                <p>R$100,00</p>
+                <button onclick="adicionarAoCarrinho('Camiseta Street Flow', 100.00)">Comprar</button>
+            </div>
+        
+            <div class="produto">
+                <img src="https://i.pinimg.com/736x/e8/b1/7a/e8b17aabc8f1e91b50996fdd24498923.jpg" alt="Camiseta Urban Wild">
+                <h3>Camiseta Urban Wild</h3>
+                <p>R$100,00</p>
+                <button onclick="adicionarAoCarrinho('Camiseta Urban Wild', 100.00)">Comprar</button>
+            </div>
+        
+            <div class="produto">
+                <img src="https://i.pinimg.com/736x/e8/b1/7a/e8b17aabc8f1e91b50996fdd24498923.jpg" alt="Camiseta Metro Art">
+                <h3>Camiseta Metro Art</h3>
+                <p>R$100,00</p>
+                <button onclick="adicionarAoCarrinho('Camiseta Metro Art', 100.00)">Comprar</button>
+            </div>
 
+</div>
+        </section>
 
- </section>
-
-
- <!--Carrinho de Compras-->
+        <!-- Carrinho de Compras -->
         <aside class="carrinho">
-            <h2><i class="fas fa-shopping-cart"></i>Meu Carrinho</h2>
+            <h2><i class="fas fa-shopping-cart"></i> Meu Carrinho</h2>
             <ul id="lista-carrinho"></ul>
             <p>Total: R$ <span id="total">0,00</span></p>
             <button onclick="finalizarCompra()">Finalizar Compra</button>
         </aside>
     </main>
     
-    
     <footer>
-        <p> 2024 DrilWear | <a href="#">Instagram</a> | <a href="#">WhatsApp</a></p>
+        <p>2025 DrilWear | <a href="#"><i class="fab fa-instagram"></i> Instagram</a> | 
+           <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a></p>
     </footer>
     
     <script src="script.js"></script>

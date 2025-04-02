@@ -1,42 +1,68 @@
-let carrinho = []
-
-function adicionaraocarrinho(nome, preco) {
-    const itemExistente = carrinho.find(item => item.nome === nome);
-    if (itemExistente) {
-        itemExistente.quantidade++;
-    } else {
-        carrinho.push({ nome, preco, quantidade: 1 });
-    }
-    atualizarcarrinho();
+let carrinho = [];
+let total = 0;
+function toggleCarrinho() {
+    const carrinho = document.getElementById('carrinho-dropdown');
+    carrinho.classList.toggle('visible');
 }
 
-function atualizarcarrinho() {
-    const lista = document.getElementById('lista-carrinho');
-    const total = document.getElementById('total');
-
-    lista.innerHTML = '';
-    let soma = 0;
+// Fechar o carrinho ao clicar fora
+document.addEventListener('click', (e) => {
+    const carrinho = document.getElementById('carrinho-dropdown');
+    const btnCarrinho = document.querySelector('.carrinho-btn');
     
-    carrinho.forEach(item=> {
+    if (!carrinho.contains(e.target) && e.target !== btnCarrinho && !btnCarrinho.contains(e.target)) {
+        carrinho.classList.remove('visible');
+    }
+});
+// Função para adicionar item ao carrinho
+function adicionarAoCarrinho(nome, preco) {
+    // Adiciona o item ao carrinho
+    carrinho.push({ nome, preco });
+    total += preco;
+    
+    // Atualiza a exibição do carrinho
+    atualizarCarrinho();
+    
+    // Feedback visual
+    alert(`${nome} foi adicionado ao carrinho!`);
+}
+
+// Função para atualizar a exibição do carrinho
+function atualizarCarrinho() {
+    const listaCarrinho = document.getElementById('lista-carrinho');
+    const totalElement = document.getElementById('total');
+    
+    // Limpa a lista
+    listaCarrinho.innerHTML = '';
+    
+    // Adiciona cada item do carrinho
+    carrinho.forEach(item => {
         const li = document.createElement('li');
         li.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
-        lista.appendChild(li);
-        soma += item.preco;
-
-
+        listaCarrinho.appendChild(li);
     });
-    total.textContent = soma.toFixed(2);
+    
+    // Atualiza o total
+    totalElement.textContent = total.toFixed(2);
 }
+
+// Função para finalizar a compra
 function finalizarCompra() {
     if (carrinho.length === 0) {
-        alert("Carrinho vazio!");
+        alert('Seu carrinho está vazio!');
         return;
     }
-    fetch('http://localhost:8080/pedido', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(carrinho)
-    })
-    .then(response => alert("Compra finalizada!"))
-    .catch(err => console.error(err));
+    
+    // Simulação de finalização de compra
+    alert(`Compra finalizada! Total: R$ ${total.toFixed(2)}\nObrigado por comprar na DrilWear!`);
+    
+    // Limpa o carrinho
+    carrinho = [];
+    total = 0;
+    atualizarCarrinho();
 }
+
+// Inicializa o carrinho
+document.addEventListener('DOMContentLoaded', () => {
+    atualizarCarrinho();
+});
